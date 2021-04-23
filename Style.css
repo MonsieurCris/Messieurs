@@ -1,0 +1,696 @@
+/* parte 1 */
+/* criar class primeiro aqui foi a img wrap, object fit serve pra img se ajusta no navegador*/
+.img-wrap { 
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, .8);
+}
+
+.img-wrap img{
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    object-fit: cover;
+    animation: zoom 3s;
+}
+
+@keyframes zoom{
+0%{
+    transform: scale(1.8);
+}
+100%{
+    transform: scale(1);
+}
+}
+
+/* aqui não teve class foi direto no cabeçalho, corrigindo a foto e deixando ela certinha sem a listra branca */
+header { 
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+/* não foi uma correção mas foi style */
+.banner {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+
+.banner h1{
+    color: white; 
+    font-family: 'Koho';
+    font-size: 3rem;
+    margin-bottom: 0rem;
+    margin: 10px, 5px;
+    font-weight: 100;
+    text-shadow: 1rem 1rem 3px rgba(0, 0, 0, .5);
+    line-height: 3.5rem;
+}
+
+.banner h2{
+    color: white; 
+    font-family: 'Koho';
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    margin: 10px, 5px;
+    font-weight: 100;
+    text-shadow: 1rem 1rem 3px rgba(0, 0, 0, .5);
+    line-height: 3.5rem;
+}
+
+.banner p{
+    color: rgb(255, 255, 255);
+    font-family: 'Dancing Script';
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+/* aqui todo o botão em si foi trabalhado, lembrar de pegar o kit gradient */
+.banner button{
+    text-transform: uppercase;
+    font-family: 'Mulish';
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    padding: 0rem 1rem;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */       
+    outline: none;
+    animation: banner 2s;
+    transition: .5s;
+}
+/* Parte 2 keyframe */
+@keyframes banner{
+0%{
+    transform: translatex(50rem)
+}
+
+100%{
+    transform: translatex(0)
+}
+}
+/* interagir com o botão ao passar o mouse  */
+.banner button:hover{
+    background: transparent;
+    color: #4cf7c3;
+}
+
+.banner button:active{
+    background:transparent;
+    color:#fff;
+}
+
+/* Keyframe precisar especificar onde vai mexer e como mexer */
+/* Fim da Parte 1 */
+
+
+/* Class burger criada para fazer a barra lateral onde vai ficar o menu */
+.burger{
+width: 2rem;
+height: 2rem;
+position: fixed;
+z-index: 2;
+top: 2rem;
+right: 2rem;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+cursor: pointer;
+
+}
+
+.line{
+width: 100%;
+height: .10rem;
+background-color:#4cf7c3;
+box-shadow: .1rem .1rem 1px #000;
+transition: .5s;
+}
+/* animação menu */
+
+
+.show-menu #line2{
+opacity: 0;
+visibility: hidden;
+transition: .5s;
+
+}
+
+.show-menu #line1{
+transform: rotate(4005deg) translate(.2rem, .5rem);
+}
+
+.show-menu #line3{
+transform: rotate(-765deg) translate(.25rem, -.5rem);
+}
+
+/* O texto que tá os links como projeto, serviço e etc, tá me estressando pq não sei ocultar */
+aside{
+width: 15rem;
+height: 100vh;
+position: fixed;
+background-color: rgba(0, 0, 0, .8);
+top: 0;
+right: -15rem;
+transition: all 1s;
+z-index: 1;
+
+}
+
+aside.show-menu{
+right: 0;
+z-index: 1;
+
+}
+
+/* colocar sempre antes de tudo mesmo com normalize só pra garantir,o asterisco é pra todos os elementos*/
+*{
+margin: 0;
+padding: 0;
+list-style: none;
+text-decoration: none;
+}
+
+/* Classes da navegação do site */
+.menu{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%); /*posiciona a navegação do menu dentro do espaço branco */
+}
+
+.menu-item{
+text-align: center;
+margin-bottom: .5rem;
+
+
+}
+
+.menu-link{
+font-family:'Nanum Gothic Coding', monospace;
+font-weight: 400;
+font-size: 1.5rem;
+color: white;
+transition: color .5s;
+
+}
+
+.menu-link:hover{
+background-color: transparent;    
+color: #4cf7c3;
+}
+
+.social-media{
+position: absolute;
+bottom: 2rem;
+width: 100%;
+display: flex;
+justify-content: space-evenly;
+
+}
+
+.social-media i{
+background:transparent;
+color: rgb(255, 255, 255);
+width: 3rem;
+height: 3rem;
+font-size: 2rem;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+transition: 1s;
+}
+
+.social-media i:hover{
+background-color: transparent;
+color: #4cf7c3;
+}
+
+
+
+/* Parte 3.1 */
+
+.servicos {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.servico{
+flex-basis: 25%;
+flex-grow: 5;
+padding: 2rem 4rem;
+margin-bottom: 1rem;
+}
+
+.secao-header-servicos {
+display: flex;
+justify-content: center;
+margin: 0rem 0rem;
+/* Parte que tá ficando com uma faixa branca */
+}
+
+.secao-header-servicos h1 {
+font-family: 'Mulish', sans-serif;
+font-weight: 200;
+font-size: 3rem;
+padding: 1rem 557px;
+color: #000000;
+border-bottom: solid 5px #32f118d0;
+
+}
+
+
+.servico-header{
+display: flex;
+align-items: center;
+color: rgb(0, 0, 0);
+}
+
+
+.servico-header i{
+font-size: 4rem;
+color:#0e5b9bd0;
+}
+
+
+.servico-header h2{
+font-family: 'Koho';
+font-size: 3rem;
+margin-left: 1rem;
+margin-top: .5rem;
+
+}
+
+.servico-text{
+font-family: 'M PLUS 1p';
+font-size: 2 rem;
+line-height: 1.5 rem;
+margin-top: 1rem;
+font-weight: 600;
+}
+
+/* parte 4 P4 P4 P4 P4 P4 P4 P4 P4 P4 P4 P4 */
+
+.projetos{
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: row; /*Posição esquerda pra direita em linha*/
+flex-wrap: wrap; /* distribui o conteúdo entre o espaço disponível*/
+justify-content: space-evenly;
+
+}
+
+.secao-header-cards {
+    display: flex;
+    justify-content: center;
+    margin: 0rem 0rem;
+    }
+.secao-header-cards h1 {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 200;
+    font-size: 3rem;
+    padding: 1rem 557px;
+    color: #000000;
+    border-bottom: solid 5px #e1ebf3d0;
+    
+    }
+.card{
+width: 20rem;
+height: 25rem;
+position: relative;
+margin: 2rem;
+}
+
+.card-img{
+width: 100%;
+height: 100%;
+
+}
+
+.card-img img{
+object-fit: cover;
+width: 100%;
+height: 100%;
+border-radius: 1.2rem;
+opacity: .5s;
+
+}
+
+.card:hover .card-img img{
+opacity: 0.2;
+
+}
+.card:hover .card-img{
+
+background: #BA5370;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F4E2D8, #BA5370);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F4E2D8, #BA5370); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius: 1.2rem;
+
+}
+
+.card-info{
+position: absolute;
+bottom: 0;
+padding: 2rem;
+text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, .5);
+opacity: 0;
+transition: all .5s;
+}
+
+.card:hover .card-info{
+bottom: 2rem;
+opacity: 1;
+}
+
+
+.card-info h2{
+font-family:'Calligraffitti', serif;
+color: gray;
+}
+
+.card-info h3{
+font-family: 'Mulish', serif;
+font-size: 1.5rem;
+color: #4cf7c3;
+}
+
+.card-info p{
+font-family: 'Mulish', sans-serif;
+font-weight: 400;
+width: 80%;
+}
+
+.card-info button{
+text-transform: uppercase;
+    font-family: 'Mulish';
+    font-weight: 400;
+    margin-top: 2rem;
+    color: rgb(0, 0, 0);
+    padding: 0rem 1rem;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+
+
+/* PARTE 555555555555 */
+
+.secao-contato{
+width: 100%;
+height:100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.contato-wrap{
+width: 80%;
+height: 40rem;
+display: flex;
+box-shadow: 0rem 1.5rem 3rem rgba(0, 0, 0, .6);/*deslocamento esquerda para direita*/
+}
+
+.contato-left{
+width:40%;
+background:
+           linear-gradient(rgba(46, 220, 226, 0.3), rgba(0, 59, 99, 0.7)),
+            url(img/contato.jpg);
+    /*opacidade de cima no primeiro, segundo cor de baixo*/
+background-size: cover;
+}
+
+.contato-right{
+background-color: #424242;
+width: 100%;
+padding: 1rem;
+
+}
+
+.contato-right h1{
+font-family: "Baloo Da 2", serif;
+color: royalblue;
+text-align: center;
+font-size: 3rem;
+font-weight: lighter;
+}
+
+.contato-right form{
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.field{
+background:transparent;
+border: none;
+outline: none;
+border-bottom: 1px dashed #f5f5f5;
+font-size: 1.5rem;
+margin: 2rem 0;
+font-family: "Josefin Slab", serif;
+color: #f5f5f5;
+}
+
+.input-group{
+position: relative;
+
+}
+
+.field-label{
+position: absolute;
+left: 0;
+font-size: 1.3rem;
+color: #f5f5f5;
+font-family: "Josefin Slab", serif;
+font-weight: bolder;
+opacity: .7;
+transition: all .3s;
+margin-top: .5rem;
+}
+
+.field:focus~label{
+font-size: .9rem;
+}
+
+.field:focus{
+border-bottom: 1px solid #f5f5f5; 
+}
+
+.input-group textarea{
+width: 18.5rem;
+min-height: 3rem;
+max-height: 9rem;
+max-width: 25rem;
+}
+
+.enviar{
+text-transform: uppercase;
+    font-family: 'Mulish';
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    padding: 0rem 1rem;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background: #ADA996;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */       
+    outline: none;
+    transition: .5s;
+    margin-top: 2rem;
+    
+}
+
+.enviar:hover{
+background: transparent;
+color: #4cf7c3;
+}
+
+.enviar:active{
+background:transparent;
+color:#fff;
+}
+
+
+
+/* Parte 6 Parte 6Parte 6Parte 6Parte 6Parte 6Parte 6Parte 6Parte 6Parte 6Parte 6Parte 6Parte 6 */
+
+.secao-orcamento{
+width: 100%;
+height: 100vh;
+background:url(img/bg-orcamento.jpg);
+object-fit: cover;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.orcamento-wrap{
+background-color: #ffffff99;
+width: 60%;
+border-radius: 10px;
+box-shadow:0 0.2rem 0.3rem rgba(0, 0, 0, .5);
+position: relative;
+
+}
+
+.secao-orcamento h1{
+position: absolute;
+top: -3rem;
+left: 2rem;
+background: #ADA996;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+color: #000000;
+padding: .5rem 2rem;
+border-radius: 10px;
+font-family:"Nanum Gothic Coding", serif;
+font-size: 3rem;
+font-weight: lighter;
+box-shadow:0 0.2rem 0.3rem rgba(0, 0, 0, .5);
+
+
+}
+
+.secao-orcamento form{
+margin: 7rem 4rem;
+display: flex;
+flex-direction:column;
+flex-wrap: wrap;
+
+}
+
+.secao-orcamento label{
+font-family: "Mulish", serif;
+font-size: 1.3rem;
+
+}
+
+.secao-orcamento input[type="number"]{
+font-family: "Mulish", serif;
+font-size: 1.5rem;
+width: 3rem;
+outline-color: black;
+
+border-style:ridge;
+
+padding:.3rem 0rem .3rem .5rem;
+border-radius: 5px;
+background: none;
+}
+
+.submit-orcamento{
+text-transform: uppercase;
+margin-bottom: 3rem;
+font-family: "Mulish", serif;
+padding: 1rem 2.5rem;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+color: black;
+background: #ADA996;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+outline: none;
+margin-top: 2rem;
+min-width: 50%;
+margin: 3rem auto;
+
+}
+
+.item-form{
+margin-bottom: 2.5rem;
+
+}
+
+#preco {
+margin-top: 2rem;
+}
+
+
+
+/* Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7Parte 7 */
+
+footer{
+width: 100hh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2rem 2rem;
+background-color: rgba(0, 0, 0, .8);
+}
+
+.secao-footer{
+width: 60%;
+display: flex;
+justify-content: space-between;
+}
+
+.secao-footer p{
+
+color: white;
+font-size: 1rem;
+font-family: "Mulish";
+}
+
+.social-list ul{
+display: flex;
+}
+
+.social-list a{
+color: white;
+margin: 0 2rem;
+font-size: 1.5rem;
+transition: all .5s;
+}
+
+.social-list a:hover{
+color: #4cf7c3 ;
+/* margin: 0 1rem;
+font-size: 1.5rem; */
+transition: all 1s;
+}
+
+.link-top{
+position: absolute;
+width: 3rem;
+height: 3rem;
+right: 1rem;
+bottom: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+
+background: #ADA996;  
+background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
+
+color: black;
+border-radius: 3rem;
+box-shadow: 0 .1rem 0.5rem rgba(0, 0, 0, .8);
+
+/* cima pra baixo, esquerda direita, esfumaçado */
+}
+
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+position: relative;
+}
